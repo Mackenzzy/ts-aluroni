@@ -4,7 +4,6 @@ import { useState } from 'react';
 import Filtros from './Filtros';
 import Ordenador from './Ordenador';
 import Itens from './Itens';
-import Cabecalho from '../../components/Cabecalho';
 
 export default function Cardapio() {
   const [busca, setBusca] = useState('');
@@ -12,7 +11,6 @@ export default function Cardapio() {
   const [ordenador, setOrdenador] = useState('');
   return (
     <>     
-    <Cabecalho/>
       <section className={styles.cardapio}>
         <h3 className={styles.cardapio__titulo}>Cardápio</h3>
         <Buscador busca={busca} setBusca={setBusca} />

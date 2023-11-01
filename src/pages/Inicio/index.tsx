@@ -1,4 +1,3 @@
-import Cabecalho from 'components/Cabecalho';
 import cardapio from 'data/cardapio.json';
 import styles from './inicio.module.scss';
 
@@ -12,7 +11,6 @@ export default function Inicio() {
     return(
         
         <section>
-            <Cabecalho/>
             <h3 className = {styles.titulo}>
                 Recomendações da cozinha
             </h3>
