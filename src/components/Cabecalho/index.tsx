@@ -1,5 +1,6 @@
 import styles from './cabecalho.module.scss';
 import { Outlet } from 'react-router-dom';
+import stylesTema from 'styles/Tema.module.scss';
 
 export default function Cabecalho() {
     return (
@@ -9,7 +10,10 @@ export default function Cabecalho() {
                     A casa do código e da massa
                 </div>
             </header>
-            <Outlet />
+            <div className={stylesTema.container}>
+                <Outlet />
+            </div>
+
         </>
     )
 }
