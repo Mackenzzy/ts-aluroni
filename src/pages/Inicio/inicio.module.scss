@@ -1,9 +1,10 @@
 @import 'styles/variaveis';
+@import 'styles/breakpoints';
 
 .recomendados {
   border-radius: 2px;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 30px;
   justify-content: space-between;
 }
@@ -56,5 +57,11 @@
     left: 0;
     right: 0;
     width: 200px;
+  }
+}
+@media screen and (max-width: $desktop_xsm) {
+
+  .recomendados{
+    flex-wrap: wrap;
   }
 }
