@@ -1,4 +1,5 @@
 import Cabecalho from "components/Cabecalho";
+import Footer from "components/Footer";
 import Menu from "components/Menu";
 import Cardapio from "pages/Cardapio";
 import Inicio from "pages/Inicio";
@@ -15,10 +16,9 @@ export default function AppRouter() {
                         <Route index element={<Inicio/>}/>
                         <Route path='cardapio' element={<Cardapio/>}/>    
                         <Route path='sobre' element={<Sobre/>}/>                
-                    </Route>
-
-                    
+                    </Route>                    
                 </Routes>
+                <Footer/>
             </Router>
         </main>
     );
