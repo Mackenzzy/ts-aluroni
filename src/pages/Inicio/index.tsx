@@ -15,7 +15,7 @@ export default function Inicio() {
         function redirecionarParaDetalhes(prato: typeof cardapio[0]) {
         console.log(prato)
 
-        navigate(`/prato/${prato.id}`, {state : {...prato}, replace: true});
+        navigate(`/prato/${prato.id}`, {state : {prato}, replace: true});
     }
     return(
         

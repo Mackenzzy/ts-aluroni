@@ -1,9 +1,60 @@
 import styles from './Prato.module.scss';
-import { useLocation } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
+import classNames from 'classnames';
+import cardapio from 'data/cardapio.json';
+import NotFound from 'pages/NotFound';
+
+
 export default function Prato() {
-    console.log(useLocation())
+    const { id } = useParams();
+    const prato = cardapio.find(item => item.id === Number(id));
+
+
+    const voltar = useNavigate();
+    const fazVoltar = () => {
+        voltar(-1);
+    };
+
+    if (!prato) {
+        return <NotFound />
+    }
+    
     return (
-        <div>Prato</div>
+        <>
+        <button 
+        className = {styles.voltar}
+        onClick = {fazVoltar}
+        >
+            {'<Voltar'}
+        </button>
+        <section className={styles.container}>
+            <h1 className={styles.titulo}>{prato.title}</h1>
+            <div className={styles.imagem}>
+                <img src={prato.photo} alt={prato.title} />
+            </div>
+            <div className={styles.conteudo}>
+                <p className={styles.conteudo__descricao}></p>
+                <div className={styles.tags}>
+                    <div className={classNames({
+                        [styles.tags__tipo]: true,
+                        [styles[`tags__${prato.category.label.toLowerCase()}`]]: true
+                    })}>
+                        {prato.category.label}
+                    </div>
+                    <div className={styles.tags__porcao}>
+                        {prato.size}g
+                    </div>
+                    <div className={styles.tags__qtdpessoas}>
+                        Serve {prato.serving} pessoa{prato.serving === 1 ? '' : 's'};
+                    </div>
+                    <div className={styles.tags__valor}>
+                        R$ {prato.price.toFixed(2)}
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        </>
     );
 
 }
